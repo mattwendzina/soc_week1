@@ -5,34 +5,182 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Rock, Paper, Scissors</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Permanent+Marker"
+      rel="stylesheet"
+    />
   </head>
 
   <style>
+    body {
+      background: #4180ff;
+      font-family: "Permanent Marker", cursive;
+    }
+    #intro {
+      text-align: center;
+      font-family: "Permanent Marker", cursive;
+      font-size: 30px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+    }
+
     button {
+      background: #4180ff;
       width: 200px;
       height: 200px;
+      margin: 5px 50px;
+      border-radius: 50%;
+      position: relative;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 42px;
+      color: wheat;
+      font-family: "Permanent Marker", cursive;
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+
+    button p {
+      position: absolute;
+      margin: 0;
+    }
+
+    #rockButton img {
+      width: 100%;
+      top: 14px;
+      right: 1%;
+      position: absolute;
+    }
+
+    #rockButton:before {
+      content: "Rock";
+      font-size: 50px;
+      top: 50%;
+      z-index: 1;
+      transform: scale(0, 1);
+      transition: 200ms ease-in-out;
+    }
+
+    button#rockButton:hover:before {
+      transform: scale(1, 1);
+    }
+
+    #paperButton img {
+      width: 108%;
+      top: 0;
+      right: 1%;
+      position: absolute;
+    }
+
+    #paperButton:before {
+      content: "Paper";
+      font-size: 50px;
+      top: 50%;
+      z-index: 1;
+      transform: scale(0, 1);
+      transition: 200ms ease-in-out;
+    }
+
+    button#paperButton:hover:before {
+      transform: scale(1, 1);
+    }
+
+    #scissorsButton img {
+      width: 148%;
+      top: -40px;
+      right: -21%;
+      position: absolute;
+    }
+
+    #scissorsButton:before {
+      content: "Scissors";
+      font-size: 50px;
+      top: 50%;
+      z-index: 1;
+      transform: scale(0, 1);
+      transition: 200ms ease-in-out;
+    }
+
+    button#scissorsButton:hover:before {
+      transform: scale(1, 1);
+    }
+
+    #playerScore,
+    #computerScore {
+      text-align: center;
     }
 
     #currentGame,
     #displayResult {
       display: inline-block;
     }
+
+    #rules {
+      text-align: center;
+      color: white;
+      font-size: 40px;
+    }
+
+    #gameTrackerContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+    }
+
+    #gameTrackerContainer div {
+      display: flex;
+      flex-wrap: wrap;
+      text-align: center;
+      margin: 0 40px;
+    }
+
+    #gameTrackerContainer div p {
+      flex: 100%;
+    }
   </style>
 
   <body>
+    <div id="intro">
+      <h1>Welcome to Rock, Paper, Scissors!</h1>
+    </div>
+
     <div class="container">
-      <button id="rockButton" onclick="playGame('rock')">Rock</button>
-      <button id="paperButton" onclick="playGame('paper')">Paper</button>
+      <button id="rockButton" onclick="playGame('rock')">
+        <img src="../images/stone.png" />
+        <!-- <p>Rock</p> -->
+      </button>
+      <button id="paperButton" onclick="playGame('paper')">
+        <img src="../images/paper.png" />
+      </button>
       <button id="scissorsButton" onclick="playGame('scissors')">
-        Scissors
+        <img src="../images/scissors.png" />
       </button>
     </div>
-    <p id="currentGame">Game:</p>
-    <p id="displayResult"></p>
-    <p>Player Score is:</p>
-    <p id="playerScore"></p>
-    <p>Computer Score is:</p>
-    <p id="computerScore"></p>
+    <h2 id="rules">Rules: First to five wins!</h2>
+    <div id="gameTrackerContainer">
+      <div>
+        <p id="currentGame">Game:</p>
+        <p id="displayResult"></p>
+      </div>
+      <div>
+        <p>Player Score is:</p>
+        <p id="playerScore"></p>
+      </div>
+      <div>
+        <p>Computer Score is:</p>
+        <p id="computerScore"></p>
+      </div>
+    </div>
     <script src="./rps.js"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
-var playerScore = [0];
-var computerScore = [0];
+var playerTotalScore = 0;
+var computerTotalScore = 0;
 
 function makeChoice() {
   var choices = ["rock", "paper", "scissors"];
@@ -9,33 +9,33 @@ function makeChoice() {
 }
 
 function playGame(move) {
-  debugger;
+  // debugger;
   var PLAYER = move;
   var CPU = makeChoice();
   if (CPU === PLAYER) {
     displayResult("It's a draw");
   } else if (CPU === "rock") {
     if (PLAYER === "paper") {
-      playerScore++;
+      playerTotalScore++;
       displayResult("Player wins!");
     } else if (PLAYER === "scissors") {
-      computerScore++;
+      computerTotalScore++;
       displayResult("Computer wins!");
     }
   } else if (CPU === "paper") {
     if (PLAYER === "scissors") {
-      playerScore++;
+      playerTotalScore++;
       displayResult("Player wins!");
     } else if (PLAYER === "rock") {
-      computerScore++;
+      computerTotalScore++;
       displayResult("Computer wins!");
     }
   } else if (CPU === "scissors") {
     if (PLAYER === "rock") {
-      playerScore++;
+      playerTotalScore++;
       displayResult("Player wins!");
     } else if (PLAYER === "paper") {
-      computerScore++;
+      computerTotalScore++;
       displayResult("Computer wins!");
     }
   }
@@ -44,6 +44,27 @@ function playGame(move) {
 function displayResult(result) {
   var p = document.getElementById("displayResult");
   p.innerText = result;
+  var computerScore = document.getElementById("computerScore");
+  computerScore.innerText = computerTotalScore;
+  var playerScore = document.getElementById("playerScore");
+  playerScore.innerText = playerTotalScore;
+  if (playerTotalScore === 5) {
+    playerTotalScore = 0;
+    computerTotalScore = 0;
+    computerScore.innerText = 0;
+    playerScore.innerText = 0;
+    p.innerText = "Let's Play!";
+    alert("Player wins!");
+  } else if (computerTotalScore === 5) {
+    playerTotalScore = 0;
+    computerTotalScore = 0;
+    computerScore.innerText = 0;
+    playerScore.innerText = 0;
+    p.innerText = "Let's Play!";
+    alert("Computer wins!");
+  } else {
+    return;
+  }
 }
 
 function addScore(num) {
