@@ -12,6 +12,11 @@
       width: 200px;
       height: 200px;
     }
+
+    #currentGame,
+    #displayResult {
+      display: inline-block;
+    }
   </style>
 
   <body>
@@ -22,7 +27,12 @@
         Scissors
       </button>
     </div>
+    <p id="currentGame">Game:</p>
     <p id="displayResult"></p>
+    <p>Player Score is:</p>
+    <p id="playerScore"></p>
+    <p>Computer Score is:</p>
+    <p id="computerScore"></p>
     <script src="./rps.js"></script>
   </body>
 </html>
