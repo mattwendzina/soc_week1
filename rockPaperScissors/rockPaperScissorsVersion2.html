@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Rock, Paper, Scissors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+
+  <style>
+    button {
+      width: 200px;
+      height: 200px;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <button id="rockButton" onclick="playGame('rock')">Rock</button>
+      <button id="paperButton" onclick="playGame('paper')">Paper</button>
+      <button id="scissorsButton" onclick="playGame('scissors')">
+        Scissors
+      </button>
+    </div>
+    <p id="displayResult"></p>
+    <script src="./rps.js"></script>
+  </body>
+</html>
