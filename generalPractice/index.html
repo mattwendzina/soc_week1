@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <script>
+      var myArray = ["Matt", "Bukola", "Wasim", "Makimola"];
+
+      var str1 = "Today I am going to improve my Javascript skills! ";
+
+      function splitString(stringToSplit, separator) {
+        debugger;
+        var arrayOfStrings = stringToSplit.split(separator);
+
+        console.log('The original string is: "' + stringToSplit + '"');
+        console.log('The separator is: "' + separator + '"');
+        console.log(
+          "The array has " +
+            arrayOfStrings.length +
+            " elements: " +
+            arrayOfStrings.join(" / ")
+        );
+      }
+
+      var tempestString = "Oh brave new world that has such people in it.";
+      var monthString = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec";
+
+      var space = " ";
+      var comma = ",";
+    </script>
+  </body>
+</html>
