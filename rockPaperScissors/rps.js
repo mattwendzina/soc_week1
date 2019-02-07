@@ -1,10 +1,19 @@
-var playerTotalScore = 0;
-var computerTotalScore = 0;
+let playerTotalScore = 0;
+let computerTotalScore = 0;
+
+// Results Variables
+const resultText = document.getElementById("displayResult");
+const computerScore = document.getElementById("computerScore");
+const playerScore = document.getElementById("playerScore");
+const computerWins = document.getElementsByClassName("computerWins")[0];
+const playerWins = document.getElementsByClassName("playerWins")[0];
+// Play again Variables
+let playAgain = document.getElementById("playAgain");
 
 function makeChoice() {
-  var choices = ["rock", "paper", "scissors"];
-  var randomValue = Math.random() * choices.length;
-  var initValue = Math.floor(randomValue);
+  const choices = ["rock", "paper", "scissors"];
+  const randomValue = Math.random() * choices.length;
+  const initValue = Math.floor(randomValue);
   return choices[initValue];
 }
 
@@ -42,33 +51,30 @@ function playGame(move) {
 }
 
 function displayResult(result) {
-  var p = document.getElementById("displayResult");
-  p.innerText = result;
-  var computerScore = document.getElementById("computerScore");
+  resultText.innerText = result;
   computerScore.innerText = computerTotalScore;
-  var playerScore = document.getElementById("playerScore");
   playerScore.innerText = playerTotalScore;
+  compareScores();
+}
+
+function compareScores() {
   if (playerTotalScore === 5) {
-    playerTotalScore = 0;
-    computerTotalScore = 0;
-    computerScore.innerText = 0;
-    playerScore.innerText = 0;
-    p.innerText = "Let's Play!";
-    alert("Player wins!");
+    playerWins.setAttribute("id", "playerWins");
+    playAgain.addEventListener("click", resetGame);
   } else if (computerTotalScore === 5) {
-    playerTotalScore = 0;
-    computerTotalScore = 0;
-    computerScore.innerText = 0;
-    playerScore.innerText = 0;
-    p.innerText = "Let's Play!";
-    alert("Computer wins!");
+    computerWins.setAttribute("id", "computerWins");
+    playAgain.addEventListener("click", resetGame);
   } else {
     return;
   }
 }
 
-function addScore(num) {
-  console.log(num);
+function resetGame() {
+  playerWins.removeAttribute("id");
+  computerWins.removeAttribute("id");
+  playerTotalScore = 0;
+  computerTotalScore = 0;
+  computerScore.innerText = 0;
+  playerScore.innerText = 0;
+  p.innerText = "Let's Play!";
 }
-
-document.getElementById;

@@ -49,6 +49,10 @@
       cursor: pointer;
     }
 
+    button:focus {
+      outline: unset;
+    }
+
     button p {
       position: absolute;
       margin: 0;
@@ -170,17 +174,54 @@
     <div id="gameTrackerContainer">
       <div>
         <p id="currentGame">Game:</p>
-        <p id="displayResult"></p>
+        <p id="displayResult">Let's Play!</p>
       </div>
       <div>
         <p>Player Score is:</p>
-        <p id="playerScore"></p>
+        <p id="playerScore">0</p>
       </div>
       <div>
         <p>Computer Score is:</p>
-        <p id="computerScore"></p>
+        <p id="computerScore">0</p>
       </div>
     </div>
+
+    <style>
+      #computerWins,
+      #playerWins {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        font-size: 150px;
+        color: white;
+      }
+
+      .playerWins,
+      .computerWins {
+        display: none;
+      }
+      #winnerDetails {
+        color: white;
+      }
+    </style>
+    <div class="playerWins">
+      <div>You Won!</div>
+      <button id="playAgain">Play Again</button>
+    </div>
+
+    <div class="computerWins">
+      <div>Computer Won =(</div>
+      <button id="playAgain">Play Again</button>
+    </div>
+
     <script src="./rps.js"></script>
   </body>
 </html>
